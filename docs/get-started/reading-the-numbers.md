@@ -5,7 +5,7 @@ description: What Cortex shows for each session, what each number means, and how
 sidebar_position: 3
 ---
 
-You installed Cortex and started `abctl observe`. Now you see traffic. This page explains what the
+You installed Cortex and started `agentop observe`. Now you see traffic. This page explains what the
 numbers mean and what to do with them.
 
 Cortex shows you what your coding agent sent and what it cost. It shows the model calls, the tool
@@ -25,7 +25,7 @@ When you stop the service, the data goes with it. See [Manage the service](lapto
 
 
 <!-- VERIFY v0.9.0: the metrics view, the token/cost/latency figures and the pruning figure depend
-     on #950, #951 and #952. Confirm the field names, the labels and the layout against `abctl
+     on #950, #951 and #952. Confirm the field names, the labels and the layout against `agentop
      observe` from a v0.9.0 binary before release, and replace the worked example below with a
      captured session. -->
 
@@ -51,7 +51,7 @@ otherwise see.
 
 ## Watch a session
 
-`abctl observe` opens a terminal interface. You land on the Sessions view. The other views open with
+`agentop observe` opens a terminal interface. You land on the Sessions view. The other views open with
 a key, and they return to the view that you opened them from.
 
 - **Sessions.** A list of the sessions, with the most recent one first. Each row shows the identifier,
@@ -75,7 +75,7 @@ a key, and they return to the view that you opened them from.
 | `u` | Open the usage charts |
 | `c` | Open the column picker, in the Events view |
 | `p` | Pause and resume the stream |
-| `y` | Write the event to a file in `~/.cortex/abctl-events/` |
+| `y` | Write the event to a file in `~/.cortex/agentop-events/` |
 | `g` `G` | Move to the top or the bottom |
 | `?` | Open the key help |
 | `q` or `Ctrl+C` | Quit |
@@ -144,14 +144,14 @@ session.
 ## Read the sessions table
 
 <!-- VERIFY v0.9.0: the capture below, the column set, the 97-column floor, the marker table and the
-     precision rule come from authbridge/cmd/abctl/README.md on main (the Panes and Keybindings
+     precision rule come from cmd/agentop/README.md on main (the Panes and Keybindings
      sections). Re-capture from a v0.9.0 binary before release, and confirm the spend band's four
-     spans against `abctl cost --window`. Tracked in rossoctl/cortex#963 and rossoctl/cortex#1113. -->
+     spans against `agentop cost --window`. Tracked in rossoctl/cortex#963 and rossoctl/cortex#1113. -->
 
 The Sessions view is the table that you land on. This is one capture of it:
 
 ```text
-abctl · http://localhost:9094
+agentop · http://localhost:9094
 LAST 1H    TODAY   7 DAYS    MONTH
   $4.04   $18.80  $216.44  $703.18
 ────────────────────────────────────────────────────────────────────────────────────
@@ -272,14 +272,14 @@ result of rounding.
 
 ## Read the cost of a longer period
 
-`abctl cost` prints the spend for one period, without the terminal interface.
+`agentop cost` prints the spend for one period, without the terminal interface.
 
 ```bash
-abctl cost                  # today, from local midnight
-abctl cost --window month   # this month, from the first day
-abctl cost --window 7d      # the last seven days
-abctl cost --window 1h      # a rolling hour
-abctl cost --json           # the totals as JSON, for a script
+agentop cost                  # today, from local midnight
+agentop cost --window month   # this month, from the first day
+agentop cost --window 7d      # the last seven days
+agentop cost --window 1h      # a rolling hour
+agentop cost --json           # the totals as JSON, for a script
 ```
 
 The command prints the period that the proxy answered, and not the period that you asked for. A
@@ -300,8 +300,8 @@ what you see.
 
 The latency metric has no breakdown. Cortex records latency for a call, and not for a label.
 
-`abctl` writes your choice of metric, window and breakdown to `~/.cortex/abctl-config.yaml`. The charts
-open with the same choice the next time. `abctl` also writes the column selection and the filter of the
+`agentop` writes your choice of metric, window and breakdown to `~/.cortex/agentop-config.yaml`. The charts
+open with the same choice the next time. `agentop` also writes the column selection and the filter of the
 events table to that file.
 
 ## Read the latency
@@ -343,7 +343,7 @@ These are representative figures for the data that Cortex captures. They show th
 session. Replace them with a session that you capture before you rely on the exact values.
 :::
 
-<!-- VERIFY v0.9.0: replace this table with a real `abctl observe` capture from a v0.9.0 binary. -->
+<!-- VERIFY v0.9.0: replace this table with a real `agentop observe` capture from a v0.9.0 binary. -->
 
 One session of a coding agent, with tool pruning enabled:
 
@@ -395,7 +395,7 @@ release clearer.
 
 ## Related pages
 
-- [Quickstart on a laptop](laptop.md) installs Cortex and starts `abctl observe`.
+- [Quickstart on a laptop](laptop.md) installs Cortex and starts `agentop observe`.
 - [Cost control](../concepts/experiments/cost-control.md) reduces the token cost.
 - [Context compaction](../concepts/experiments/context-compaction.md) makes large tool output smaller.
 - [Troubleshooting](../operate/troubleshooting.md) covers the case of no events or wrong numbers.
