@@ -15,9 +15,9 @@ These conditions occur with the laptop install from
 [Quickstart on a laptop](../get-started/laptop.md). You do not need a Kubernetes cluster for this
 part.
 
-<!-- VERIFY v0.9.0: confirm the CA path, the service commands, the log path and the port against a
-     v0.9.0 install. The laptop install (install.sh, agentop service, the launchd/systemd units) is a
-     release target; see cortex#944 and cortex#945. -->
+<!-- VERIFY: verified against v0.8.1 — the CA path (~/.cortex/ca/ca.crt), the port (47600), the
+     launchd label (io.rossoctl.cortex) and the systemd unit (cortex.service) all match
+     cmd/agentop. The install itself is still a release target; see cortex#944 and cortex#945. -->
 
 ### The certificate authority is not trusted
 
@@ -111,9 +111,9 @@ The agent runs, but `agentop observe` shows no events. Check each cause in order
 
 ### A figure looks wrong, but it is correct
 
-<!-- VERIFY v0.9.0: each answer below states behaviour read from
-     cmd/agentop/README.md on cortex main (the Panes section) and from cmd_cost.go. Confirm
-     each one against a v0.9.0 binary. The `$0.00` answer depends on cortex#1046, which is open. -->
+<!-- VERIFY: verified against v0.8.1 (cmd/agentop/tui) — the em-dash rule, the narrow-terminal drop
+     of the money columns, the SAVED~ marker and the precision rule all hold. The `$0.00` answer
+     describes current behaviour; cortex#1046 would change it, and is open. -->
 
 These conditions are the display that Cortex intends. Each one reads as a defect, and each one is
 not.
