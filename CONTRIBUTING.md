@@ -172,7 +172,7 @@ translation tool reads them also.
 | --- | --- |
 | Simply install the CLI. | Install the CLI. |
 | Please note that the cost is an estimate. | The cost is an estimate. |
-| It's easy to see the traffic. | `abctl observe` shows the traffic. |
+| It's easy to see the traffic. | `agentop observe` shows the traffic. |
 | This will allow you to reduce tokens. | Two experimental plugins reduce the tokens. |
 | We recommend a sidecar. | Use a sidecar on Kubernetes. |
 
@@ -215,7 +215,7 @@ A wrong claim costs a reader more time than a missing page. Keep these four rule
 ### Links
 
 - Link to a page with a relative path, and keep the `.md` extension:
-  `[Read the numbers](../get-started/reading-the-numbers.md)`.
+  `[Read the numbers](./reading-the-numbers.md)`.
 - An anchor is the heading in lower case, with a hyphen for each space: `#the-plugin-chain`.
 - Open the target page and confirm that the heading is present. A heading changes more often than a
   file name.
